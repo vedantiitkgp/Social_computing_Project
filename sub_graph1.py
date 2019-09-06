@@ -21,7 +21,7 @@ v = snap.TIntV()
 for i in range(len(new_list)):
 	v.Add(new_list[i])
 
-#Creating the subgraph
+# Creating the subgraph
 soc_epinions1_subgraph = snap.GetSubGraph(G1,v)
 
 print "Number of nodes in soc-Epinions1-subgraph: " + str(len(v))
@@ -37,7 +37,22 @@ print "Number of edges in soc-Epinions1-subgraph: " + str(edge)
 
 CntV = snap.TIntPrV()
 
-# get degree distribution pairs (degree, count)
-snap.GetOutDegCnt(G1, CntV)
+# Get degree distribution pairs (degree, count)
+snap.GetDegCnt(soc_epinions1_subgraph, CntV)
 
-print "Number of nodes with degree distribution "
+print "Number of nodes of degree = 7 in soc-Epinions1-subgraph: " + str(CntV[6].GetVal2())
+
+Mx_degree_id =[] 
+result_degree = snap.TIntV() 
+snap.GetDegSeqV(soc_epinions1_subgraph,result_degree)
+for i in range(0, result_degree.Len()): 
+	if(result_degree[i]==CntV[CntV.Len()-1].GetVal1()):
+		Mx_degree_id.append(i)
+
+print "Node id(s) with highest degree in soc-Epinions1-subgraph: " + str(Mx_degree_id)
+
+# Plotting the degree distribution
+
+snap.PlotOutDegDistr(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph degree Distribution")
+
+print "Degree distribution of soc-Epinions1-subgraph: " + str(outDeg.soc-Epinions1-subgraph.png)
