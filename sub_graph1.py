@@ -424,12 +424,177 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 		edge_bridge = edge_bridge +1
 	print "Number of edge bridges in p2p-Gnutella04-subgraph :" + str(edge_bridge)
 
-# Calculating no of Articulation points 
+## Task 4.3
 
-ArtNIdV = snap.TIntV()
-snap.GetArtPoints(soc_epinions1_subgraph, ArtNIdV)
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Calculating no of Articulation points 
 
-art_point=0
-for NI in ArtNIdV:
-	art_point = art_point +1
+	ArtNIdV = snap.TIntV()
+	snap.GetArtPoints(soc_epinions1_subgraph, ArtNIdV)
 
+	art_point=0
+	for NI in ArtNIdV:
+		art_point = art_point +1
+	print "Number of articulation points in soc-Epinions1-subgraph :" + str(art_point)
+if(sub_graph_name=="cit-HepPh-subgraph"):
+	# Calculating no of Articulation points 
+
+	ArtNIdV = snap.TIntV()
+	snap.GetArtPoints(cit_heph_subgraph, ArtNIdV)
+
+	art_point=0
+	for NI in ArtNIdV:
+		art_point = art_point +1
+	print "Number of articulation points in cit-Heph-subgraph :" + str(art_point)
+if(sub_graph_name=="email-Enron-subgraph"):
+	# Calculating no of Articulation points 
+
+	ArtNIdV = snap.TIntV()
+	snap.GetArtPoints(email_enron_subgraph, ArtNIdV)
+
+	art_point=0
+	for NI in ArtNIdV:
+		art_point = art_point +1
+	print "Number of articulation points in email-Enron-subgraph :" + str(art_point)
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	# Calculating no of Articulation points 
+
+	ArtNIdV = snap.TIntV()
+	snap.GetArtPoints(p2p_gnutella04_subgraph, ArtNIdV)
+
+	art_point=0
+	for NI in ArtNIdV:
+		art_point = art_point +1
+	print "Number of articulation points in p2p-Gnutella04-subgraph :" + str(art_point)
+
+## Task 4.4
+
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	#Plotting the distribution of sizes of connected components
+
+	#snap.PlotSccDistr(soc_epinions1_subgraph,"soc-Epinions1-subgraph","Undirected Scc Distribution")
+	print "Shortest path Distribution of soc-Epinions1-subgraph is in :" + ''
+if(sub_graph_name=="cit-Heph-subgraph"):
+	#Plotting the distribution of sizes of connected components
+
+	#snap.PlotSccDistr(cit_heph_subgraph,"cit-HepPh-subgraph","Undirected Scc Distribution")
+	print "Shortest path Distribution of cit-Heph-subgraph is in :" + ''
+if(sub_graph_name=="email-Enron-subgraph"):
+	#Plotting the distribution of sizes of connected component
+	snap.PlotSccDistr(email_enron_subgraph,"email-Enron-subgraph","Undirected Scc Distribution")
+	print "Shortest path Distribution of email-Enron-subgraph is in :" + ''
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	#Plotting the distribution of sizes of connected components
+
+	snap.PlotSccDistr(p2p_gnutella04_subgraph,"p2p-Gnutella04-subgraph","Undirected Scc Distribution")
+	print "Shortest path Distribution of p2p-Gnutella04-subgraph is in :" + ''
+
+### Task 5
+
+## Task 5.1
+
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	#Compute Average Clustering coeffiecient
+	print "Average Clustering coeffiecient in soc-Epinions1-subgraph :" + str(snap.GetClustCf (soc_epinions1_subgraph, -1))
+if(sub_graph_name=="cit-Heph-subgraph"):
+	#Compute Average Clustering coeffiecient
+	print "Average Clustering coeffiecient in cit-Heph-subgraph :" + str(snap.GetClustCf (cit_heph_subgraph, -1))
+if(sub_graph_name=="email-Enron-subgraph"):
+	#Compute Average Clustering coeffiecient
+	print "Average Clustering coeffiecient in email-Enron-subgraph :" + str(snap.GetClustCf (email_enron_subgraph, -1))
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	#Compute Average Clustering coeffiecient
+	print "Average Clustering coeffiecient in p2p-Gnutella04-subgraph :" + str(snap.GetClustCf (p2p_gnutella04_subgraph, -1))
+
+## Task 5.2
+
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Computing no of Triads
+	print "Number of Triads in soc-Epinions1-subgraph :" + str(snap.GetTriads(soc_epinions1_subgraph,-1))
+if(sub_graph_name=="cit-HepPh-subgraph"):
+	# Computing no of Triads
+	print "Number of Triads in cit-HepPh-subgraph :" + str(snap.GetTriads(cit_heph_subgraph,-1))
+if(sub_graph_name=="email-Enron-subgraph"):
+	# Computing no of Triads
+	print "Number of Triads in email-Enron-subgraph :" + str(snap.GetTriads(email_enron_subgraph,-1))
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	# Computing no of Triads
+	print "Number of Triads in p2p-Gnutella04-subgraph :" + str(snap.GetTriads(p2p_gnutella04_subgraph,-1))
+
+## Task 5.3
+
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Clustering coeffiecient of a random node
+	Rand = snap.TRnd(42)
+	Rand.Randomize()
+	RandNode1=G.GetRndNId(Rand)
+	print "Clustering coefficient of random node  " + str(RandNode1) + " in soc-Epinions1-subgraph : " + str(snap.GetNodeClustCf(soc_epinions1_subgraph, RandNode1))
+if(sub_graph_name=="cit-HepPh-subgraph"):
+	# Clustering coeffiecient of a random node
+	Rand = snap.TRnd(42)
+	Rand.Randomize()
+	RandNode2=G.GetRndNId(Rand)
+	print "Clustering coefficient of random node  " + str(RandNode2) + " in cit-HepPh-subgraph : " + str(snap.GetNodeClustCf(cit_heph_subgraph, RandNode2))
+if(sub_graph_name=="email-Enron-subgraph"):
+	# Clustering coeffiecient of a random node
+	Rand = snap.TRnd(42)
+	Rand.Randomize()
+	RandNode3=G.GetRndNId(Rand)
+	print "Clustering coefficient of random node  " + str(RandNode3) + " in email-Enron-subgraph : " + str(snap.GetNodeClustCf(email_enron_subgraph, RandNode3)) 
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Clustering coeffiecient of a random node
+	Rand = snap.TRnd(42)
+	Rand.Randomize()
+	RandNode4=G.GetRndNId(Rnd)
+	print "Clustering coefficient of random node  " + str(RandNode4) + " in p2p-Gnutella04-subgraph : " + str(snap.GetNodeClustCf(p2p_gnutella04_subgraph, RandNode4))
+
+## Task 5.4
+
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Number of node Triads of a random node
+	print "Number of triads random node  " + str(RandNode1) + "  participates in soc-Epinions1-subgraph: " + str(snap.GetNodeTriads(soc_epinions1_subgraph, RandNode1))
+if(sub_graph_name=="cit-HepPh-subgraph"):
+	# Number of node Triads of a random node
+	print "Number of triads random node  " + str(RandNode2) + "  participates in cit-HepPh-subgraph: " + str(snap.GetNodeTriads(cit_heph_subgraph, RandNode2))
+if(sub_graph_name=="email-Enron-subgraph"):
+	# Number of node Triads of a random node
+	print "Number of triads random node  " + str(RandNode3) + "  participates in email-Enron-subgraph: " + str(snap.GetNodeTriads(email_enron_subgraph, RandNode3))
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	# Number of node Triads of a random node
+	print "Number of triads random node  " + str(RandNode4) + "  participates in p2p-Gnutella04-subgraph: " + str(snap.GetNodeTriads(p2p_gnutella04_subgraph, RandNode4))
+
+## Task 5.5
+
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Calculating no  of edges in particular triads
+	print"Number of edges that participate in at least one triad in soc-Epinions1-subgraph : " + str(snap.GetTriadEdges(soc_epinions1_subgraph))
+if(sub_graph_name=="cit-HepPh-subgraph"):
+	# Calculating no  of edges in particular triads
+	print"Number of edges that participate in at least one triad in cit-HepPh-subgraph : " + str(snap.GetTriadEdges(cit_heph_subgraph))
+if(sub_graph_name=="email-Enron-subgraph"):
+	# Calculating no  of edges in particular triads
+	print"Number of edges that participate in at least one triad in email-Enron-subgraph : " + str(snap.GetTriadEdges(email_enron_subgraph))
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	# Calculating no  of edges in particular triads
+	print"Number of edges that participate in at least one triad in p2p-Gnutella04-subgraph : " + str(snap.GetTriadEdges(p2p_gnutella04_subgraph))
+
+## Task 5.6
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	#Plotting clustering coefficient 
+	#snap.PlotClustCf(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of soc-Epinions1-subgraph is in :" + str()
+if(sub_graph_name=="cit-Heph-subgraph"):
+	#Plotting clustering coefficient 
+	#snap.PlotClustCf(cit_heph_subgraph, "cit-Heph-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of cit-Heph-subgraph is in :" + str()
+if(sub_graph_name=="email-Enron-subgraph"):
+	#Plotting clustering coefficient 
+	#snap.PlotClustCf(email_enron_subgraph, "email-Enron-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of email-Enron-subgraph is in :" + str()
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	#Plotting clustering coefficient 
+	#snap.PlotClustCf(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of p2p-Gnutella04-subgraph is in :" + str()
+
+
+#### End Part 1 ############
