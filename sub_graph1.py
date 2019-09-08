@@ -9,7 +9,7 @@ G4 = snap.LoadEdgeList(snap.PUNGraph, "/home/vedant/Social_computing/P2P_gutella
 
 #Taking Input of which sub graph to proceed
  
-sub_graph_name = input("Enter the name of subgraph")
+sub_graph_name = raw_input("Enter the name of subgraph ")
 
 ###Task 1
 
@@ -58,7 +58,7 @@ if(sub_graph_name=="cit-HepPh-subgraph"):
 
 	# Creating the subgraph
 	cit_heph_subgraph = snap.GetSubGraph(G2,v2)
-	print "Number of nodes in cit-Heph-subgraph: " + str(len(v2))
+	print "Number of nodes in cit-HepPh-subgraph: " + str(len(v2))
 
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Creating a new list with taking  edges multiple of 3
@@ -85,7 +85,7 @@ if(sub_graph_name=="email-Enron-subgraph"):
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	list4=[]
-	for i in G4.nodes():
+	for i in G4.Nodes():
 		node = i.GetId()
 		list4.append(node)
 
@@ -115,7 +115,7 @@ if(sub_graph_name=="cit-HepPh-subgraph"):
 	edge =0
 	for i in cit_heph_subgraph.Edges():
 		edge = edge +1
-	print "Number of edges in cit-Heph-subgraph: " + str(edge)
+	print "Number of edges in cit-HepPh-subgraph: " + str(edge)
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Counting no of edges
 	edge =0
@@ -140,13 +140,14 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 	snap.GetDegCnt(soc_epinions1_subgraph, CntV1)
 
 	print "Number of nodes of degree = 7 in soc-Epinions1-subgraph: " + str(CntV1[6].GetVal2())
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	CntV2 = snap.TIntPrV()
 
 	# Get degree distribution pairs (degree, count)
 	snap.GetDegCnt(cit_heph_subgraph, CntV2)
 
-	print "Number of nodes of degree = 7 in cit-Heph-subgraph: " + str(CntV2[6].GetVal2())
+	print "Number of nodes of degree = 7 in cit-HepPh-subgraph: " + str(CntV2[6].GetVal2())
+
 if(sub_graph_name=="email-Enron-subgraph"):
 	CntV3 = snap.TIntPrV()
 
@@ -163,6 +164,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	print "Number of nodes of degree = 7 in p2p-Gnutella04-subgraph: " + str(CntV4[6].GetVal2())
 
 ##Task 2.2
+
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	Mx_degree_id =[] 
 	result_degree = snap.TIntV() 
@@ -172,7 +174,7 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 			Mx_degree_id.append(i)
 
 	print "Node id(s) with highest degree in soc-Epinions1-subgraph: " + str(Mx_degree_id)
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	Mx_degree_id =[] 
 	result_degree = snap.TIntV() 
 	snap.GetDegSeqV(cit_heph_subgraph,result_degree)
@@ -180,11 +182,11 @@ if(sub_graph_name=="cit-Heph-subgraph"):
 		if(result_degree[i]==CntV2[CntV2.Len()-1].GetVal1()):
 			Mx_degree_id.append(i)
 
-	print "Node id(s) with highest degree in cit-Heph-subgraph: " + str(Mx_degree_id)
+	print "Node id(s) with highest degree in cit-HepPh-subgraph: " + str(Mx_degree_id)
 if(sub_graph_name=="email-Enron-subgraph"):
 	Mx_degree_id =[] 
 	result_degree = snap.TIntV() 
-	snap.GetDegSeqV(email-Enron-subgraph,result_degree)
+	snap.GetDegSeqV(email_enron_subgraph,result_degree)
 	for i in range(0, result_degree.Len()): 
 		if(result_degree[i]==CntV3[CntV3.Len()-1].GetVal1()):
 			Mx_degree_id.append(i)
@@ -204,25 +206,25 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 
 	# Plotting the degree distribution
 
-	#snap.PlotOutDegDistr(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph degree Distribution")
+	snap.PlotOutDegDistr(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph degree Distribution")
 	print "Degree distribution of soc-Epinions1-subgraph: " + "outDeg.soc-Epinions1-subgraph.png"
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 
 	# Plotting the degree distribution
 	
-	#snap.PlotOutDegDistr(cit_heph_subgraph, "cit-Heph-subgraph", "Undirected graph degree Distribution")
-	print "Degree distribution of cit-Heph-subgraph: " + "outDeg.cit-Heph-subgraph.png"
+	snap.PlotOutDegDistr(cit_heph_subgraph, "cit-HepPh-subgraph", "Undirected graph degree Distribution")
+	print "Degree distribution of cit-HepPh-subgraph: " + "outDeg.cit-HepPh-subgraph.png"
 if(sub_graph_name=="email-Enron-subgraph"):
 
 	# Plotting the degree distribution
 	
-	#snap.PlotOutDegDistr(email_enron_subgraph, "email-Enron-subgraph", "Undirected graph degree Distribution")
+	snap.PlotOutDegDistr(email_enron_subgraph, "email-Enron-subgraph", "Undirected graph degree Distribution")
 	print "Degree distribution of email-Enron-subgraph: " + "outDeg.email-Enron-subgraph.png"
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	# Plotting the degree distribution
 	
-	#snap.PlotOutDegDistr(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph", "Undirected graph degree Distribution")
+	snap.PlotOutDegDistr(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph", "Undirected graph degree Distribution")
 	print "Degree distribution of p2p-Gnutella04-subgraph: " + "outDeg.p2p-Gnutella04-subgraph.png"
 
 ### Task 3
@@ -237,15 +239,15 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 	value = [snap.GetBfsFullDiam(soc_epinions1_subgraph, 10),snap.GetBfsFullDiam(soc_epinions1_subgraph, 100),snap.GetBfsFullDiam(soc_epinions1_subgraph, 1000)]
 
 	print "Approximate full diameter in soc-Epinions1-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value),2)) + "," + str(round(statistics.variance(value),2))
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Calculating the full diameter 
-	print "Approximate full diameter in cit-Heph-subgraph with sampling 10 nodes: " + str(snap.GetBfsFullDiam(cit_heph_subgraph, 10))
-	print "Approximate full diameter in cit-Heph-subgraph with sampling 100 nodes: " + str(snap.GetBfsFullDiam(cit_heph_subgraph, 100))
-	print "Approximate full diameter in cit-Heph-subgraph with sampling 1000 nodes: " + str(snap.GetBfsFullDiam(cit_heph_subgraph, 1000))
+	print "Approximate full diameter in cit-HepPh-subgraph with sampling 10 nodes: " + str(snap.GetBfsFullDiam(cit_heph_subgraph, 10))
+	print "Approximate full diameter in cit-HepPh-subgraph with sampling 100 nodes: " + str(snap.GetBfsFullDiam(cit_heph_subgraph, 100))
+	print "Approximate full diameter in cit-HepPh-subgraph with sampling 1000 nodes: " + str(snap.GetBfsFullDiam(cit_heph_subgraph, 1000))
 
 	value = [snap.GetBfsFullDiam(cit_heph_subgraph, 10),snap.GetBfsFullDiam(cit_heph_subgraph, 100),snap.GetBfsFullDiam(cit_heph_subgraph, 1000)]
 
-	print "Approximate full diameter in cit-Heph-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value),2)) + "," + str(round(statistics.variance(value),2))
+	print "Approximate full diameter in cit-HepPh-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value),2)) + "," + str(round(statistics.variance(value),2))
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Calculating the full diameter 
 	print "Approximate full diameter in email-Enron-subgraph with sampling 10 nodes: " + str(snap.GetBfsFullDiam(email_enron_subgraph, 10))
@@ -277,16 +279,16 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 	value_new = [snap.GetBfsEffDiam(soc_epinions1_subgraph,10,v1,True)[0],snap.GetBfsEffDiam(soc_epinions1_subgraph,100,v1,True)[0],snap.GetBfsEffDiam(soc_epinions1_subgraph,1000,v1,True)[0]]
 
 	print "Approximate Effective diameter in soc-Epinions1-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value_new),3)) + "," + str(round(statistics.variance(value_new),4))
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Calculating the effective diameter
 
-	print "Approximate Effective diameter in cit-Heph-subgraph with sampling 10 nodes: " + str(round(snap.GetBfsEffDiam(cit_heph_subgraph,10,v2,True)[0],3))
-	print "Approximate Effective diameter in cit-Heph-subgraph with sampling 100 nodes: " + str(round(snap.GetBfsEffDiam(cit_heph_subgraph,100,v2,True)[0],3))
-	print "Approximate Effective diameter in cit-Heph-subgraph with sampling 1000 nodes: " + str(round(snap.GetBfsEffDiam(cit_heph_subgraph,1000,v2,True)[0],3))
+	print "Approximate Effective diameter in cit-HepPh-subgraph with sampling 10 nodes: " + str(round(snap.GetBfsEffDiam(cit_heph_subgraph,10,v2,True)[0],3))
+	print "Approximate Effective diameter in cit-HepPh-subgraph with sampling 100 nodes: " + str(round(snap.GetBfsEffDiam(cit_heph_subgraph,100,v2,True)[0],3))
+	print "Approximate Effective diameter in cit-HepPh-subgraph with sampling 1000 nodes: " + str(round(snap.GetBfsEffDiam(cit_heph_subgraph,1000,v2,True)[0],3))
 
 	value_new = [snap.GetBfsEffDiam(cit_heph_subgraph,10,v2,True)[0],snap.GetBfsEffDiam(cit_heph_subgraph,100,v2,True)[0],snap.GetBfsEffDiam(cit_heph_subgraph,1000,v2,True)[0]]
 
-	print "Approximate Effective diameter in cit-Heph-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value_new),3)) + "," + str(round(statistics.variance(value_new),4))
+	print "Approximate Effective diameter in cit-HepPh-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value_new),3)) + "," + str(round(statistics.variance(value_new),4))
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Calculating the effective diameter
 
@@ -313,22 +315,22 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Plotting the distribution of shortest Length
 
-	#snap.PlotShortPathDistr(soc_epinions1_subgraph,"soc-Epinions1-subgraph","Undirected graph - shortest path")
+	snap.PlotShortPathDistr(soc_epinions1_subgraph,"soc-Epinions1-subgraph","Undirected graph - shortest path")
 	print "Shortest path distribution of soc-Epinions1-subgraph is in :" + "diam.soc-Epinions1-subgraph.png"
 if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Plotting the distribution of shortest Length
 
-	#snap.PlotShortPathDistr(cit_heph_subgraph,"cit-Heph-subgraph","Undirected graph - shortest path")
-	print "Shortest path distribution of cit-Heph-subgraph is in :" + "diam.cit-Heph-subgraph.png"
+	snap.PlotShortPathDistr(cit_heph_subgraph,"cit-HepPh-subgraph","Undirected graph - shortest path")
+	print "Shortest path distribution of cit-HepPh-subgraph is in :" + "diam.cit-HepPh-subgraph.png"
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Plotting the distribution of shortest Length
 
-	#snap.PlotShortPathDistr(email_enron_subgraph,"email-Enron-subgraph","Undirected graph - shortest path")
+	snap.PlotShortPathDistr(email_enron_subgraph,"email-Enron-subgraph","Undirected graph - shortest path")
 	print "Shortest path distribution of email-Enron-subgraph is in :" + "diam.email-Enron-subgraph.png"
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	# Plotting the distribution of shortest Length
 
-	#snap.PlotShortPathDistr(p2p_gnutella04_subgraph,"p2p-Gnutella04-subgraph","Undirected graph - shortest path")
+	snap.PlotShortPathDistr(p2p_gnutella04_subgraph,"p2p-Gnutella04-subgraph","Undirected graph - shortest path")
 	print "Shortest path distribution of p2p-Gnutella04-subgraph is in :" + "diam.p2p-Gnutella04-subgraph.png"
 
 ### Task 4
@@ -348,7 +350,7 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 
 	print "Fraction of nodes in largest connected component in soc-Epinions1-subgraph :" + str(round(node*1.0/len(v1),3))
 
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 
 	# Finding the components of the network
 	# Calculating the fraction of largest connected component
@@ -359,7 +361,7 @@ if(sub_graph_name=="cit-Heph-subgraph"):
 	for i in largest_connected.Nodes():
 		node = node + 1
 
-	print "Fraction of nodes in largest connected component in cit-Heph-subgraph :" + str(round(node*1.0/len(v2),3))
+	print "Fraction of nodes in largest connected component in cit-HepPh-subgraph :" + str(round(node*1.0/len(v2),3))
 if(sub_graph_name=="email-Enron-subgraph"):
 
 	# Finding the components of the network
@@ -396,7 +398,7 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 	for i in EdgeV:
 		edge_bridge = edge_bridge +1
 	print "Number of edge bridges in soc-Epinions1-subgraph :" + str(edge_bridge)
-if(sub_graph_name=="cit-Heph-subgraph"):
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Getting no of edge bridges in th network
 	EdgeV = snap.TIntPrV()
 	snap.GetEdgeBridges(cit_heph_subgraph, EdgeV)
@@ -404,7 +406,7 @@ if(sub_graph_name=="cit-Heph-subgraph"):
 	edge_bridge = 0
 	for i in EdgeV:
 		edge_bridge = edge_bridge +1
-	print "Number of edge bridges in cit-Heph-subgraph :" + str(edge_bridge)
+	print "Number of edge bridges in cit-HepPh-subgraph :" + str(edge_bridge)
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Getting no of edge bridges in th network
 	EdgeV = snap.TIntPrV()
@@ -445,7 +447,7 @@ if(sub_graph_name=="cit-HepPh-subgraph"):
 	art_point=0
 	for NI in ArtNIdV:
 		art_point = art_point +1
-	print "Number of articulation points in cit-Heph-subgraph :" + str(art_point)
+	print "Number of articulation points in cit-HepPh-subgraph :" + str(art_point)
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Calculating no of Articulation points 
 
@@ -472,22 +474,22 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	#Plotting the distribution of sizes of connected components
 
-	#snap.PlotSccDistr(soc_epinions1_subgraph,"soc-Epinions1-subgraph","Undirected Scc Distribution")
-	print "Shortest path Distribution of soc-Epinions1-subgraph is in :" + ''
-if(sub_graph_name=="cit-Heph-subgraph"):
+	snap.PlotSccDistr(soc_epinions1_subgraph,"soc-Epinions1-subgraph","Undirected Scc Distribution")
+	print "Component size Distribution of soc-Epinions1-subgraph is in :" + 'scc.soc-Epinions1-subgraph.png'
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	#Plotting the distribution of sizes of connected components
 
-	#snap.PlotSccDistr(cit_heph_subgraph,"cit-HepPh-subgraph","Undirected Scc Distribution")
-	print "Shortest path Distribution of cit-Heph-subgraph is in :" + ''
+	snap.PlotSccDistr(cit_heph_subgraph,"cit-HepPh-subgraph","Undirected Scc Distribution")
+	print " Component size Distribution of cit-HepPh-subgraph is in :" + 'scc.cit-HepPh-subgraph.png'
 if(sub_graph_name=="email-Enron-subgraph"):
 	#Plotting the distribution of sizes of connected component
 	snap.PlotSccDistr(email_enron_subgraph,"email-Enron-subgraph","Undirected Scc Distribution")
-	print "Shortest path Distribution of email-Enron-subgraph is in :" + ''
+	print "Component size Distribution of email-Enron-subgraph is in :" + 'scc.email-Enron-subgraph.png'
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	#Plotting the distribution of sizes of connected components
 
 	snap.PlotSccDistr(p2p_gnutella04_subgraph,"p2p-Gnutella04-subgraph","Undirected Scc Distribution")
-	print "Shortest path Distribution of p2p-Gnutella04-subgraph is in :" + ''
+	print "Component size Distribution of p2p-Gnutella04-subgraph is in :" + 'scc.p2p-Gnutella04-subgraph.png'
 
 ### Task 5
 
@@ -495,16 +497,16 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	#Compute Average Clustering coeffiecient
-	print "Average Clustering coeffiecient in soc-Epinions1-subgraph :" + str(snap.GetClustCf (soc_epinions1_subgraph, -1))
-if(sub_graph_name=="cit-Heph-subgraph"):
+	print "Average Clustering coeffiecient in soc-Epinions1-subgraph :" + str(round(snap.GetClustCf(soc_epinions1_subgraph, -1),4))
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	#Compute Average Clustering coeffiecient
-	print "Average Clustering coeffiecient in cit-Heph-subgraph :" + str(snap.GetClustCf (cit_heph_subgraph, -1))
+	print "Average Clustering coeffiecient in cit-HepPh-subgraph :" + str(round(snap.GetClustCf (cit_heph_subgraph, -1),4))
 if(sub_graph_name=="email-Enron-subgraph"):
 	#Compute Average Clustering coeffiecient
-	print "Average Clustering coeffiecient in email-Enron-subgraph :" + str(snap.GetClustCf (email_enron_subgraph, -1))
+	print "Average Clustering coeffiecient in email-Enron-subgraph :" + str(round(snap.GetClustCf (email_enron_subgraph, -1),4))	
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	#Compute Average Clustering coeffiecient
-	print "Average Clustering coeffiecient in p2p-Gnutella04-subgraph :" + str(snap.GetClustCf (p2p_gnutella04_subgraph, -1))
+	print "Average Clustering coeffiecient in p2p-Gnutella04-subgraph :" + str(round(snap.GetClustCf (p2p_gnutella04_subgraph, -1),4))
 
 ## Task 5.2
 
@@ -527,41 +529,41 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Clustering coeffiecient of a random node
 	Rand = snap.TRnd(42)
 	Rand.Randomize()
-	RandNode1=G.GetRndNId(Rand)
-	print "Clustering coefficient of random node  " + str(RandNode1) + " in soc-Epinions1-subgraph : " + str(snap.GetNodeClustCf(soc_epinions1_subgraph, RandNode1))
+	RandNode1=soc_epinions1_subgraph.GetRndNId(Rand)
+	print "Clustering coefficient of random node " + str(RandNode1) + " in soc-Epinions1-subgraph : " + str(round(snap.GetNodeClustCf(soc_epinions1_subgraph, RandNode1),4))
 if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Clustering coeffiecient of a random node
 	Rand = snap.TRnd(42)
 	Rand.Randomize()
-	RandNode2=G.GetRndNId(Rand)
-	print "Clustering coefficient of random node  " + str(RandNode2) + " in cit-HepPh-subgraph : " + str(snap.GetNodeClustCf(cit_heph_subgraph, RandNode2))
+	RandNode2=cit_heph_subgraph.GetRndNId(Rand)
+	print "Clustering coefficient of random node " + str(RandNode2) + " in cit-HepPh-subgraph : " + str(round(snap.GetNodeClustCf(cit_heph_subgraph, RandNode2),4))
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Clustering coeffiecient of a random node
 	Rand = snap.TRnd(42)
 	Rand.Randomize()
-	RandNode3=G.GetRndNId(Rand)
-	print "Clustering coefficient of random node  " + str(RandNode3) + " in email-Enron-subgraph : " + str(snap.GetNodeClustCf(email_enron_subgraph, RandNode3)) 
-if(sub_graph_name=="soc-Epinions1-subgraph"):
+	RandNode3=email_enron_subgraph.GetRndNId(Rand)
+	print "Clustering coefficient of random node " + str(RandNode3) + " in email-Enron-subgraph : " + str(round(snap.GetNodeClustCf(email_enron_subgraph, RandNode3),4)) 
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	# Clustering coeffiecient of a random node
 	Rand = snap.TRnd(42)
 	Rand.Randomize()
-	RandNode4=G.GetRndNId(Rnd)
-	print "Clustering coefficient of random node  " + str(RandNode4) + " in p2p-Gnutella04-subgraph : " + str(snap.GetNodeClustCf(p2p_gnutella04_subgraph, RandNode4))
+	RandNode4=p2p_gnutella04_subgraph.GetRndNId(Rand)
+	print "Clustering coefficient of random node " + str(RandNode4) + " in p2p-Gnutella04-subgraph : " + str(round(snap.GetNodeClustCf(p2p_gnutella04_subgraph, RandNode4),4))
 
 ## Task 5.4
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Number of node Triads of a random node
-	print "Number of triads random node  " + str(RandNode1) + "  participates in soc-Epinions1-subgraph: " + str(snap.GetNodeTriads(soc_epinions1_subgraph, RandNode1))
+	print "Number of triads of random node  " + str(RandNode1) + "  participates in soc-Epinions1-subgraph: " + str(snap.GetNodeTriads(soc_epinions1_subgraph, RandNode1))
 if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Number of node Triads of a random node
-	print "Number of triads random node  " + str(RandNode2) + "  participates in cit-HepPh-subgraph: " + str(snap.GetNodeTriads(cit_heph_subgraph, RandNode2))
+	print "Number of triads of random node  " + str(RandNode2) + "  participates in cit-HepPh-subgraph: " + str(snap.GetNodeTriads(cit_heph_subgraph, RandNode2))
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Number of node Triads of a random node
-	print "Number of triads random node  " + str(RandNode3) + "  participates in email-Enron-subgraph: " + str(snap.GetNodeTriads(email_enron_subgraph, RandNode3))
+	print "Number of triads of random node  " + str(RandNode3) + "  participates in email-Enron-subgraph: " + str(snap.GetNodeTriads(email_enron_subgraph, RandNode3))
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	# Number of node Triads of a random node
-	print "Number of triads random node  " + str(RandNode4) + "  participates in p2p-Gnutella04-subgraph: " + str(snap.GetNodeTriads(p2p_gnutella04_subgraph, RandNode4))
+	print "Number of triads of random node  " + str(RandNode4) + "  participates in p2p-Gnutella04-subgraph: " + str(snap.GetNodeTriads(p2p_gnutella04_subgraph, RandNode4))
 
 ## Task 5.5
 
@@ -581,20 +583,20 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 ## Task 5.6
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	#Plotting clustering coefficient 
-	#snap.PlotClustCf(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph - clustering coefficient")
-	print "Clustering coefficient distribution of soc-Epinions1-subgraph is in :" + str()
-if(sub_graph_name=="cit-Heph-subgraph"):
+	snap.PlotClustCf(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of soc-Epinions1-subgraph is in :" + 'ccf.soc-Epinions1-subgraph.png'
+if(sub_graph_name=="cit-HepPh-subgraph"):
 	#Plotting clustering coefficient 
-	#snap.PlotClustCf(cit_heph_subgraph, "cit-Heph-subgraph", "Undirected graph - clustering coefficient")
-	print "Clustering coefficient distribution of cit-Heph-subgraph is in :" + str()
+	snap.PlotClustCf(cit_heph_subgraph, "cit-Heph-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of cit-HepPh-subgraph is in :" + 'ccf.cit-Heph-subgraph.png'
 if(sub_graph_name=="email-Enron-subgraph"):
 	#Plotting clustering coefficient 
-	#snap.PlotClustCf(email_enron_subgraph, "email-Enron-subgraph", "Undirected graph - clustering coefficient")
-	print "Clustering coefficient distribution of email-Enron-subgraph is in :" + str()
+	snap.PlotClustCf(email_enron_subgraph, "email-Enron-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of email-Enron-subgraph is in :" + 'ccf.email-Enron-subgraph.png'
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	#Plotting clustering coefficient 
-	#snap.PlotClustCf(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph", "Undirected graph - clustering coefficient")
-	print "Clustering coefficient distribution of p2p-Gnutella04-subgraph is in :" + str()
+	snap.PlotClustCf(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph", "Undirected graph - clustering coefficient")
+	print "Clustering coefficient distribution of p2p-Gnutella04-subgraph is in :" + 'ccf.p2p-Gnutella04-subgraph.png'
 
 
 #### End Part 1 ############

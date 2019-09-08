@@ -1,8 +1,8 @@
 #
-# Udirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13 (Sat Sep  7 16:40:33 2019)
+# Undirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13 (Mon Sep  9 03:54:08 2019)
 #
 
-set title "Udirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13"
+set title "Undirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13"
 set key bottom right
 set logscale y 10
 set format y "10^{%L}"
