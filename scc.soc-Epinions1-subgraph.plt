@@ -1,5 +1,5 @@
 #
-# Undirected Scc Distribution. G(37939, 102004). Largest component has 0.665779 nodes (Mon Sep  9 03:54:08 2019)
+# Undirected Scc Distribution. G(37939, 102004). Largest component has 0.665779 nodes (Mon Sep  9 04:40:23 2019)
 #
 
 set title "Undirected Scc Distribution. G(37939, 102004). Largest component has 0.665779 nodes"

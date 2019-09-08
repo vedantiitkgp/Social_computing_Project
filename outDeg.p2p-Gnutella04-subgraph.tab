@@ -1,5 +1,5 @@
 #
-# Undirected graph degree Distribution. G(10876, 39994). 4554 (0.4187) nodes with out-deg > avg deg (7.4), 1339 (0.1231) with >2*avg.deg (Mon Sep  9 04:07:17 2019)
+# Undirected graph degree Distribution. G(10876, 39994). 4554 (0.4187) nodes with out-deg > avg deg (7.4), 1339 (0.1231) with >2*avg.deg (Mon Sep  9 04:48:41 2019)
 #
 # Out-degree	Count
 1	2467

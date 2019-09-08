@@ -1,5 +1,5 @@
 #
-# Undirected graph - clustering coefficient. G(12231, 18453). Average clustering: 0.1716  OpenTriads: 713482 (0.9685)  ClosedTriads: 23202 (0.0315) (Mon Sep  9 04:02:16 2019)
+# Undirected graph - clustering coefficient. G(12231, 18453). Average clustering: 0.1716  OpenTriads: 713482 (0.9685)  ClosedTriads: 23202 (0.0315) (Mon Sep  9 04:46:13 2019)
 #
 
 set title "Undirected graph - clustering coefficient. G(12231, 18453). Average clustering: 0.1716  OpenTriads: 713482 (0.9685)  ClosedTriads: 23202 (0.0315)"

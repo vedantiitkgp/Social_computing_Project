@@ -11,9 +11,10 @@ G4 = snap.LoadEdgeList(snap.PUNGraph, "/home/vedant/Social_computing/P2P_gutella
  
 sub_graph_name = raw_input("Enter the name of subgraph ")
 
-###Task 1
+#### Task 1
 
-##Task 1.1
+### Task 1.1
+
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Creating a new list with taking odd edges
 	list1 = []
@@ -35,8 +36,7 @@ if(sub_graph_name=="soc-Epinions1-subgraph"):
 
 	# Creating the subgraph
 	soc_epinions1_subgraph = snap.GetSubGraph(G1,v1)
-	print "Number of nodes in soc-Epinions1-subgraph: " + str(len(v1))
-
+	snap.SaveEdgeList(soc_epinions1_subgraph, "soc-Epinions1-subgraph-edge.txt", "Save as tab-separated list of edges")
 if(sub_graph_name=="cit-HepPh-subgraph"):
 	# Creating a new list with taking even edges
 	list2 = []
@@ -58,8 +58,7 @@ if(sub_graph_name=="cit-HepPh-subgraph"):
 
 	# Creating the subgraph
 	cit_heph_subgraph = snap.GetSubGraph(G2,v2)
-	print "Number of nodes in cit-HepPh-subgraph: " + str(len(v2))
-
+	snap.SaveEdgeList(cit_heph_subgraph, "cit-Heph-subgraph-edge.txt", "Save as tab-separated list of edges")
 if(sub_graph_name=="email-Enron-subgraph"):
 	# Creating a new list with taking  edges multiple of 3
 	list3 = []
@@ -81,7 +80,7 @@ if(sub_graph_name=="email-Enron-subgraph"):
 
 	# Creating the subgraph
 	email_enron_subgraph = snap.GetSubGraph(G3,v3)
-	print "Number of nodes in email-Enron-subgraph: " + str(len(v3))
+	snap.SaveEdgeList(email_enron_subgraph, "email-Enron-subgraph-edge.txt", "Save as tab-separated list of edges")
 if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	list4=[]
@@ -100,9 +99,29 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 		v4.Add(list4[i])
 
 	p2p_gnutella04_subgraph = G4
+	snap.SaveEdgeList(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph-edge.txt", "Save as tab-separated list of edges")
+
+### Task 1.2
+
+## Task 1.2.1
+
+# Task 1.2.1.1
+if(sub_graph_name=="soc-Epinions1-subgraph"):
+	# Calculating no of nodes
+	print "Number of nodes in soc-Epinions1-subgraph: " + str(len(v1))
+
+if(sub_graph_name=="cit-HepPh-subgraph"):
+	# Calculating no of nodes
+	print "Number of nodes in cit-HepPh-subgraph: " + str(len(v2))
+
+if(sub_graph_name=="email-Enron-subgraph"):
+	# Calculating no of nodes
+	print "Number of nodes in email-Enron-subgraph: " + str(len(v3))
+if(sub_graph_name=="p2p-Gnutella04-subgraph"):
+	# Calculating no of nodes
 	print "Number of nodes in p2p-Gnutella04-subgraph: " + str(len(v4))
 
-## Task 1.2
+# Task 1.2.1.2
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Counting no of edges
@@ -129,9 +148,9 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 		edge = edge +1
 	print "Number of edges in p2p-Gnutella04-subgraph: " + str(edge)
 
-### Task 2
+## Task 1.2.2
 
-## Task 2.1
+# Task 1.2.2.1
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	CntV1 = snap.TIntPrV()
@@ -163,7 +182,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	print "Number of nodes of degree = 7 in p2p-Gnutella04-subgraph: " + str(CntV4[6].GetVal2())
 
-##Task 2.2
+# Task 1.2.2.2
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	Mx_degree_id =[] 
@@ -201,7 +220,8 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 			Mx_degree_id.append(i)
 
 	print "Node id(s) with highest degree in email-Enron-subgraph: " + str(Mx_degree_id)
-## Task 2.3
+
+# Task 1.2.2.3
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 
 	# Plotting the degree distribution
@@ -227,9 +247,9 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	snap.PlotOutDegDistr(p2p_gnutella04_subgraph, "p2p-Gnutella04-subgraph", "Undirected graph degree Distribution")
 	print "Degree distribution of p2p-Gnutella04-subgraph: " + "outDeg.p2p-Gnutella04-subgraph.png"
 
-### Task 3
+## Task 1.2.3
 
-## Task 3.1
+# Task 1.2.3.1
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Calculating the full diameter 
 	print "Approximate full diameter in soc-Epinions1-subgraph with sampling 10 nodes: " + str(snap.GetBfsFullDiam(soc_epinions1_subgraph, 10))
@@ -267,7 +287,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	print "Approximate full diameter in p2p-Gnutella04-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value),2)) + "," + str(round(statistics.variance(value),2))
 
-## Task 3.2
+# Task 1.2.3.2
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Calculating the effective diameter
@@ -310,7 +330,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	print "Approximate Effective diameter in p2p-Gnutella04-subgraph with sampling nodes(mean and variance):" + str(round(statistics.mean(value_new),3)) + "," + str(round(statistics.variance(value_new),4))
 
-## Task 3.3
+# Task 1.2.3.3
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Plotting the distribution of shortest Length
@@ -333,9 +353,9 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	snap.PlotShortPathDistr(p2p_gnutella04_subgraph,"p2p-Gnutella04-subgraph","Undirected graph - shortest path")
 	print "Shortest path distribution of p2p-Gnutella04-subgraph is in :" + "diam.p2p-Gnutella04-subgraph.png"
 
-### Task 4
+## Task 1.2.4
 
-## Task 4.1
+# Task 1.2.4.1
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 
@@ -387,7 +407,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 
 	print "Fraction of nodes in largest connected component in p2p-Gnutella04-subgraph :" + str(round(node*1.0/len(v4),3))
 
-## Task 4.2
+# Task 1.2.4.2
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Getting no of edge bridges in th network
@@ -426,7 +446,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 		edge_bridge = edge_bridge +1
 	print "Number of edge bridges in p2p-Gnutella04-subgraph :" + str(edge_bridge)
 
-## Task 4.3
+# Task 1.2.4.3
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Calculating no of Articulation points 
@@ -469,7 +489,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 		art_point = art_point +1
 	print "Number of articulation points in p2p-Gnutella04-subgraph :" + str(art_point)
 
-## Task 4.4
+# Task 1.2.4.4
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	#Plotting the distribution of sizes of connected components
@@ -491,9 +511,9 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	snap.PlotSccDistr(p2p_gnutella04_subgraph,"p2p-Gnutella04-subgraph","Undirected Scc Distribution")
 	print "Component size Distribution of p2p-Gnutella04-subgraph is in :" + 'scc.p2p-Gnutella04-subgraph.png'
 
-### Task 5
+## Task 1.2.5
 
-## Task 5.1
+# Task 1.2.5.1
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	#Compute Average Clustering coeffiecient
@@ -508,7 +528,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	#Compute Average Clustering coeffiecient
 	print "Average Clustering coeffiecient in p2p-Gnutella04-subgraph :" + str(round(snap.GetClustCf (p2p_gnutella04_subgraph, -1),4))
 
-## Task 5.2
+# Task 1.2.5.2
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Computing no of Triads
@@ -523,7 +543,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	# Computing no of Triads
 	print "Number of Triads in p2p-Gnutella04-subgraph :" + str(snap.GetTriads(p2p_gnutella04_subgraph,-1))
 
-## Task 5.3
+# Task 1.2.5.3
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Clustering coeffiecient of a random node
@@ -550,7 +570,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	RandNode4=p2p_gnutella04_subgraph.GetRndNId(Rand)
 	print "Clustering coefficient of random node " + str(RandNode4) + " in p2p-Gnutella04-subgraph : " + str(round(snap.GetNodeClustCf(p2p_gnutella04_subgraph, RandNode4),4))
 
-## Task 5.4
+# Task 1.2.5.4
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Number of node Triads of a random node
@@ -565,7 +585,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	# Number of node Triads of a random node
 	print "Number of triads of random node  " + str(RandNode4) + "  participates in p2p-Gnutella04-subgraph: " + str(snap.GetNodeTriads(p2p_gnutella04_subgraph, RandNode4))
 
-## Task 5.5
+# Task 1.2.5.5
 
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	# Calculating no  of edges in particular triads
@@ -580,7 +600,7 @@ if(sub_graph_name=="p2p-Gnutella04-subgraph"):
 	# Calculating no  of edges in particular triads
 	print"Number of edges that participate in at least one triad in p2p-Gnutella04-subgraph : " + str(snap.GetTriadEdges(p2p_gnutella04_subgraph))
 
-## Task 5.6
+# Task 1.2.5.6
 if(sub_graph_name=="soc-Epinions1-subgraph"):
 	#Plotting clustering coefficient 
 	snap.PlotClustCf(soc_epinions1_subgraph, "soc-Epinions1-subgraph", "Undirected graph - clustering coefficient")

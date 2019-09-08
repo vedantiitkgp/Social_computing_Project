@@ -1,5 +1,5 @@
 #
-# Undirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13 (Mon Sep  9 03:54:08 2019)
+# Undirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13 (Mon Sep  9 04:40:23 2019)
 #
 
 set title "Undirected graph - shortest path. G(37939, 102004). Diam: avg:4.29  eff:5.02  max:13"

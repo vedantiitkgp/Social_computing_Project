@@ -1,5 +1,5 @@
 #
-# Undirected graph degree Distribution. G(17226, 103954). 5471 (0.3176) nodes with out-deg > avg deg (12.1), 1994 (0.1158) with >2*avg.deg (Mon Sep  9 03:56:31 2019)
+# Undirected graph degree Distribution. G(17226, 103954). 5471 (0.3176) nodes with out-deg > avg deg (12.1), 1994 (0.1158) with >2*avg.deg (Mon Sep  9 04:41:14 2019)
 #
 
 set title "Undirected graph degree Distribution. G(17226, 103954). 5471 (0.3176) nodes with out-deg > avg deg (12.1), 1994 (0.1158) with >2*avg.deg"
